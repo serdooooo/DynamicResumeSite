@@ -1,0 +1,17 @@
+﻿@using MVCCV.Models.Entity
+@model List<Education> 
+<div class="resume-section-content">
+    <h2 class="mb-5">EĞİTİMLERİM</h2>
+    @foreach (var x in Model)
+    {
+    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+        <div class="flex-grow-1">
+            <h3 class="mb-0">@x.Title</h3>
+            <div class="subheading mb-3">@x.Subtitle1</div>
+            <div>@x.Subtitle2</div>
+            <p>@x.GNO</p>
+        </div>
+        <div class="flex-shrink-0"><span class="text-primary">@x.EducationDate</span></div>
+    </div>
+    }
+</div>

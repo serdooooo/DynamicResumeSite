@@ -1,0 +1,22 @@
+﻿@model MVCCV.Models.Entity.Skills
+@{
+    ViewBag.Title = "SkillGet";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Yetenek Düzenle</h2>
+
+<div class="resume-section-content">
+    <form method="post">
+        @Html.Label("Yetenek")
+        @Html.TextBoxFor(x => x.Skill, new { @class = "form-control" })
+        <br />
+        @Html.Label("Oran")
+        @Html.TextBoxFor(x => x.Ratio, new { @class = "form-control" })
+        <br />
+        <br />
+        <button class="btn btn-info">Güncelle</button>
+    </form>
+</div>
+
+

@@ -1,0 +1,83 @@
+﻿@using MVCCV.Models.Entity
+@model List<Skills>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@{string renk = "";}
+<!DOCTYPE html>
+<html>
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+        <!-- Navbar -->
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Yetenek Listem</h3>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body">
+
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 10px">Id</th>
+                                            <th>Yetenek</th>
+                                            <th>Derece</th>
+                                            <th style="width: 40px">Oran</th>
+                                            <th>Sil</th>
+                                            <th>Duzenle</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var x in Model)
+                                        {
+                                            if (x.Ratio >= 0 && x.Ratio <= 50)
+                                            {
+                                                renk = "progress-bar bg-danger";
+                                            }
+                                            if (x.Ratio >= 51 && x.Ratio <= 70)
+                                            {
+                                                renk = "progress-bar bg-warning";
+                                            }
+                                            if (x.Ratio >= 75 && x.Ratio <= 84)
+                                            {
+                                                renk = "progress-bar bg-primary";
+                                            }
+                                            if (x.Ratio >= 85 && x.Ratio <= 100)
+                                            {
+                                                renk = "progress-bar bg-success";
+                                            }
+                                            <tr>
+                                                <td>@x.ID</td>
+                                                <td>@x.Skill</td>
+                                                <td>
+                                                    <div class="progress progress-xs">
+                                                        <div class="@renk" style="width: @x.Ratio%"></div>
+                                                    </div>
+                                                </td>
+                                                <td><span class="@renk">@x.Ratio%</span></td>
+                                                <td><a href="/Skill/SkillDelete/@x.ID" class="btn btn-outline-danger">Sil</a></td>
+                                                <td><a href="/Skill/SkillGet/@x.ID" class="btn btn-outline-secondary">Duzenle</a></td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                                <br />
+                                <a href="/Skill/SkillAdd" class="btn btn-primary">Yeni Yetenek Ekle</a>
+                            </div>
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                </div>
+            </div><!-- /.container-fluid -->
+        </section>
+        <!-- /.content -->
+    </div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+﻿@model MVCCV.Models.Entity.Experiences
+@{
+    ViewBag.Title = "ExperienceGet";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Deneyim Düzenle</h2>
+
+<div class="resume-section-content">
+    <form method="post">
+        @Html.Label("Deneyim ID")
+        @Html.TextBoxFor(x => x.ID, new { @class ="form-control"})
+        <br />
+        @Html.Label("Başlık")
+        @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+        <br />
+        @Html.Label("Alt Başlık")
+        @Html.TextBoxFor(x => x.Subtitle, new { @class = "form-control" })
+        <br />
+        @Html.Label("Tarih")
+        @Html.TextBoxFor(x => x.ExperienceDate, new { @class = "form-control" })
+        <br />
+        @Html.Label("Açıklama")
+        @Html.TextBoxFor(x => x.Definition, new { @class = "form-control" })
+        <br />
+        <button class="btn btn-info">Güncelle</button>
+    </form>
+</div>

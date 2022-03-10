@@ -1,0 +1,28 @@
+﻿@model MVCCV.Models.Entity.Education
+@{
+    ViewBag.Title = "EducationAdd";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="resume-section-content">
+    <form method="post">
+        <h2 class="mb-5">Yeni Egitim Ekle</h2>
+        <label>Universite</label>
+        <input type="text" class="form-control" name="Title" placeholder="Universite yazınız..." />
+        @Html.ValidationMessageFor(x => x.Title, "", new { @style = "color:red" }) <br />
+        <label>Fakulte</label>
+        <input type="text" class="form-control" name="Subtitle1" placeholder="Fakulte  yazınız..." />
+        <label>Bolum</label>
+        <input type="text" class="form-control" name="Subtitle2" placeholder="Bolum yazınız..." />
+
+        <label>Not Ortalamasi</label>
+        <input type="text" class="form-control" name="GNO" placeholder="GNO giriniz..." />
+        @Html.ValidationMessageFor(x => x.GNO, "", new { @style = "color:blue" }) <br />
+        <label>Tarih</label>
+        <input type="text" class="form-control" name="EducationDate" placeholder="Tarih giriniz..." />  <br />
+        <button class="btn btn-info">Kaydet</button>
+    </form>
+</div>
+
+

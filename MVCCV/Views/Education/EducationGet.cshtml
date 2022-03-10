@@ -1,0 +1,32 @@
+﻿@model MVCCV.Models.Entity.Education
+
+@{
+    ViewBag.Title = "EducationGet";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Egitim Düzenle</h2>
+
+<div class="resume-section-content">
+    <form method="post">
+        <br />
+        @Html.Label("Universite")
+        @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.Title, "", new { @style = "color:red" }) <br />
+        <br />
+        @Html.Label("Fakulte")
+        @Html.TextBoxFor(x => x.Subtitle1, new { @class = "form-control" })
+        <br />
+        @Html.Label("Bolum")
+        @Html.TextBoxFor(x => x.Subtitle2, new { @class = "form-control" })
+        <br />
+        @Html.Label("GNO")
+        @Html.TextBoxFor(x => x.GNO, new { @class = "form-control" })
+        <br />
+        @Html.Label("Tarih")
+        @Html.TextBoxFor(x => x.EducationDate, new { @class = "form-control" })
+        <br />
+        <button class="btn btn-info">Güncelle</button>
+    </form>
+</div>
+

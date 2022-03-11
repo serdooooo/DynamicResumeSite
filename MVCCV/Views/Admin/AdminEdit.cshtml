@@ -1,0 +1,22 @@
+﻿@model MVCCV.Models.Entity.Login
+@{
+    ViewBag.Title = "AdminEdit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<h2>Kullanici Düzenle</h2>
+
+<div class="resume-section-content">
+    <form method="post">
+        @Html.Label("Admin ID")
+        @Html.TextBoxFor(x => x.ID, new { @class = "form-control" })
+        <br />
+        @Html.Label("Kullanici Adi")
+        @Html.TextBoxFor(x => x.Username, new { @class = "form-control" })
+        <br />
+        @Html.Label("Sifre")
+        @Html.TextBoxFor(x => x.Password, new { @class = "form-control" })
+        <br />
+        <button class="btn btn-info">Güncelle</button>
+    </form>
+</div>
+

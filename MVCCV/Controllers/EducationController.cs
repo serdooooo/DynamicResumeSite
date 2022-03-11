@@ -8,10 +8,12 @@ using System.Web.Mvc;
 
 namespace MVCCV.Controllers
 {
+
     public class EducationController : Controller
     {
         // GET: Education
         EducationRepository repo = new EducationRepository();
+
         public ActionResult Index()
         {
             var edu = repo.List();

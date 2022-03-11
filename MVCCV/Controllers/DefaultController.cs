@@ -7,6 +7,7 @@ using MVCCV.Models.Entity;
 
 namespace MVCCV.Controllers
 {
+    [AllowAnonymous]
     public class DefaultController : Controller
     {
         // GET: Default

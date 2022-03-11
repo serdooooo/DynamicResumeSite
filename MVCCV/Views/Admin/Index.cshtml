@@ -1,0 +1,27 @@
+﻿@using MVCCV.Models.Entity
+@model List<Login>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h2>Admin Islemleri</h2>
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Kullanici Adi</th>
+        <th>Duzenle</th>
+        <th>Kaldir</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.ID</td>
+            <td>@x.Username</td>
+            <td><a href="/Admin/AdminEdit/@x.ID" class="btn btn-warning">Duzenle</a></td>
+            <td><a href="/Admin/AdminDelete/@x.ID" class="btn btn-danger">Kaldir</a></td>
+        </tr>
+    }
+
+</table>
+<a href="/Admin/AdminAdd" class="btn btn-primary">Yeni kullanici ekle</a>

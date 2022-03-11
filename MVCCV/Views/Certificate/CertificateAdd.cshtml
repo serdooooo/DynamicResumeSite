@@ -1,0 +1,19 @@
+﻿@model MVCCV.Models.Entity.Certificate
+@{
+    ViewBag.Title = "CertificateAdd";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="resume-section-content">
+    <form method="post">
+        <h2 class="mb-5">Yeni Sertifika Ekle</h2>
+        <label>Tarih</label>
+        <input type="text" class="form-control" name="CertificateDate" placeholder="Tarih giriniz..." />
+
+        <label>Aciklama</label>
+        <input type="text" class="form-control" name="Definition" placeholder="Aciklama  yazınız..." />
+        
+        <button class="btn btn-info">Kaydet</button>
+    </form>
+</div>
+

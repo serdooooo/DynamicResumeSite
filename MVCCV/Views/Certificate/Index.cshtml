@@ -1,0 +1,75 @@
+﻿@using MVCCV.Models.Entity
+@model List<Certificate>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<body class="hold-transition sidebar-mini">
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+
+                <!-- /.col -->
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header p-2">
+                        </div><!-- /.card-header -->
+                        <div class="card-body">
+                                <div class="tab-pane" id="timeline">
+                                    <!-- The timeline -->
+                                    <div class="timeline timeline-inverse">
+                                        <!-- timeline time label -->
+                                        @foreach (var c in Model)
+                                        {
+
+
+                                        <div class="time-label">
+
+
+                                                @if (c.ID % 2 == 0)
+                                                {
+                                                    <span class="bg-success">
+                                                        @c.CertificateDate
+                                                    </span>
+                                                }
+
+                                                @if(c.ID % 2 == 1)
+                                                {
+                                                    <span class="bg-danger">
+                                                        @c.CertificateDate
+                                                    </span>
+                                                }
+                                        </div>
+                                        <!-- /.timeline-label -->
+                                        <!-- timeline item -->
+                                        <div>
+                                            <div class="timeline-item">
+                                                
+                                                <div class="timeline-body">
+                                                    @c.Definition
+                                                </div>
+                                                <div class="timeline-footer">
+                                                    <a href="/Certificate/CertificateGet/@c.ID" class="btn btn-warning">Düzenle</a>
+                                                    <a href="/Certificate/CertificateDelete/@c.ID" class="btn btn-danger">Sil</a>
+                                                </div>
+                                            </div>
+                                        </div> 
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /.tab-content -->
+                        </div><!-- /.card-body -->
+                    <a href="/Certificate/CertificateAdd" class="btn btn-primary">Yeni Sertifika Ekle</a>
+                    </div>
+                    <!-- /.nav-tabs-custom -->
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+    </section>
+</body>
+</html>

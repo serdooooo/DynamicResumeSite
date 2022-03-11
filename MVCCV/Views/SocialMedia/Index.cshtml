@@ -1,0 +1,91 @@
+﻿@using MVCCV.Models.Entity
+@model List<SocialMedia>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<!DOCTYPE html>
+<html>
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+        <!-- Navbar -->
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Sosyal Medya Listem</h3>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body">
+                                <button class="btn btn-primary" data-toggle="modal" data-target="#Modal1">Yeni Sosyal Medya Hesabi Ekle</button>
+                                <br />
+                                <br />
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 10px">Id</th>
+                                            <th>Sosyal Medya</th>
+                                            <th>Durum</th>
+                                            <th>Duzenle</th>
+                                            <th>Sil</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var x in Model)
+                                        {
+                                            <tr>
+                                                <td>@x.ID</td>
+                                                <td>@x.SocialName</td>
+                                                @if (x.Status == true)
+                                                 {
+                                                     <td>Aktif</td>
+                                                 }
+                                                @if (x.Status == false)
+                                                 {
+                                                    <td>Pasif</td>
+                                                 }
+
+                                                <td><a href="/SocialMedia/Edit/@x.ID" class="btn btn-outline-danger">Duzenle</a></td>
+                                                <td><a href="/SocialMedia/Delete/@x.ID" class="btn btn-outline-secondary">Sil</a></td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                </div>
+            </div><!-- /.container-fluid -->
+        </section>
+
+        <div class="modal" id="Modal1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title">Yeni Sosyal Medya Ekleme Penceresi</h2>
+                    </div>
+                    <form method="post" action="/SocialMedia/Add">
+                        <div class="modal-body">
+                            <label>Sosyal Medya Adi</label>
+                            <input type="text" name="SocialName" class="form-control" />
+                            <br />
+                            <label>Link</label>
+                            <input type="text" name="Link" class="form-control" />
+                            <br />
+                            <label>Ikon</label>
+                            <input type="text" name="Icon" class="form-control" />
+                            <br />
+                            <button class="btn btn-info">Kaydet</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

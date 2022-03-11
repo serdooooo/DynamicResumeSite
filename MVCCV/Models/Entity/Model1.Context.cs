@@ -33,5 +33,6 @@ namespace MVCCV.Models.Entity
         public virtual DbSet<Interest> Interest { get; set; }
         public virtual DbSet<Login> Login { get; set; }
         public virtual DbSet<Skills> Skills { get; set; }
+        public virtual DbSet<SocialMedia> SocialMedia { get; set; }
     }
 }

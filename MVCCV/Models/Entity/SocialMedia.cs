@@ -12,10 +12,12 @@ namespace MVCCV.Models.Entity
     using System;
     using System.Collections.Generic;
     
-    public partial class Certificate
+    public partial class SocialMedia
     {
         public int ID { get; set; }
-        public string Definition { get; set; }
-        public string CertificateDate { get; set; }
+        public string SocialName { get; set; }
+        public string Link { get; set; }
+        public string Icon { get; set; }
+        public Nullable<bool> Status { get; set; }
     }
 }

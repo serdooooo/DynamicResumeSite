@@ -16,6 +16,12 @@ namespace MVCCV.Controllers
             var degerler = db.About.ToList();
             return View(degerler);
         }
+        public PartialViewResult SocialMedia()
+        {
+            var social = db.SocialMedia.Where
+                (x => x.Status == true).ToList();
+            return PartialView(social);
+        }
         public PartialViewResult Experience()
         {
             var experiences = db.Experiences.ToList();
